@@ -4,7 +4,9 @@ A Model Context Protocol (MCP) server that provides tools and resources for work
 
 ## Overview
 
-This MCP server connects Cline's AI to the tidymodels ecosystem, providing comprehensive information about tidymodels packages, functions, and common workflows. It allows Cline to:
+While this MCP server is extensible for use with tool-agnostic agentic AI workflows, in it's current form it can be paired with [Cline.bot](https://cline.bot/) and [Claude Desktop](https://claude.ai/download) as a local MCP server. The purpose of this MCP is to monitor tidymodels ecosystem, specifically the GitHub repositories [under the tidymodels organization](https://github.com/tidymodels), providing comprehensive information about tidymodels packages, functions, and common workflows.
+
+Currently, I'm getting better MCP performance when paired with Cline to:
 
 - List all packages in the tidymodels ecosystem
 - Provide detailed information about specific packages
@@ -46,9 +48,35 @@ The server can use a GitHub token to avoid rate limits when accessing the GitHub
 1. [Create a personal access token](https://github.com/settings/tokens) with the `public_repo` scope.
 2. Add it to your configuration as shown below.
 
-### Adding to Cline Desktop
+### Adding to Cline in Visual Studio Code, Positron, and OSS Code IDEs
 
-To use this MCP server with Cline Desktop, add it to your `claude_desktop_config.json`:
+After you've installed Cline's VS Code extension, navigate to its MCP Servers marketplace where you can configure local MCP server settings. Then, add the JSON to Cline's `cline_mcp_settings.json` (if you want to autoapprove the core tools within this MCP server library, keep the names shown in the `autoApprove` list):
+
+```json
+{
+  "mcpServers": {
+    "tidymodels": {
+      "command": "node",
+      "args": ["/path/to/tidymodels-mcp/js/index.js"],
+      "env": {
+        "GITHUB_TOKEN": "your-github-token"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "list_tidymodels_packages",
+        "get_package_details",
+        "search_r_functions",
+        "generate_tidymodels_code",
+        "search_issues"
+      ]
+    }
+  }
+}
+```
+
+### Adding to Claude Desktop
+
+To use this MCP server with [Claude Desktop](https://claude.ai/download), add it to your `claude_desktop_config.json`:
 
 ```json
 {
@@ -70,26 +98,6 @@ The config file is typically located at:
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - Linux: `~/.config/Claude/claude_desktop_config.json`
-
-### Adding to Cline in Visual Studio Code
-
-Add this to your Cline settings in VSCode:
-
-```json
-{
-  "mcpServers": {
-    "tidymodels": {
-      "command": "node",
-      "args": ["/path/to/tidymodels-mcp/js/index.js"],
-      "env": {
-        "GITHUB_TOKEN": "your-github-token"
-      },
-      "disabled": false,
-      "autoApprove": []
-    }
-  }
-}
-```
 
 ## Available Tools
 
