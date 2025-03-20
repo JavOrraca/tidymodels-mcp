@@ -1,0 +1,19 @@
+{
+  "name": "tidymodels-server",
+  "version": "0.1.0",
+  "description": "MCP server for tidymodels GitHub information and code generation",
+  "main": "js/index.js",
+  "scripts": {
+    "start": "node js/index.js",
+    "build": "mkdir -p js && cp src/index.ts js/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "@octokit/rest": "^19.0.13",
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "license": "MIT"
+}
