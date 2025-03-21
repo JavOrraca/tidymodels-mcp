@@ -1,5 +1,7 @@
 # Tidymodels MCP Server
 
+![](tidymodels_mcp.png)
+
 A Model Context Protocol (MCP) server that provides tools and resources for working with the [tidymodels](https://www.tidymodels.org/) ecosystem in R.
 
 ## Overview
