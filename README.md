@@ -6,7 +6,7 @@ A Model Context Protocol (MCP) server that provides tools and resources for work
 
 ## Overview
 
-While this MCP server is extensible for use with tool-agnostic agentic AI workflows, in it's current form it can be paired with [Cline.bot](https://cline.bot/) and [Claude Desktop](https://claude.ai/download) as a local MCP server. The purpose of this MCP is to monitor tidymodels ecosystem, specifically the GitHub repositories [under the tidymodels organization](https://github.com/tidymodels), providing comprehensive information about tidymodels packages, functions, and common workflows.
+While this MCP server is extensible for use with tool-agnostic agentic AI workflows, in it's current form it can be paired with [Cline.bot](https://cline.bot/) and [Claude Desktop](https://claude.ai/download) as a local MCP server. The purpose of this MCP is to monitor the tidymodels ecosystem, specifically the GitHub repositories [under the tidymodels organization](https://github.com/tidymodels), providing comprehensive information about tidymodels packages, functions, and common workflows.
 
 Currently, I'm getting better MCP performance when paired with Cline to:
 
